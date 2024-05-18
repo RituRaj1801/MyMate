@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mate🤗</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url("https://th.bing.com/th/id/OIP.xsLAu_CZadEX0wb_uNxz1gHaEK?rs=1&pid=ImgDetMain");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* font-family: Arial, sans-serif; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        video {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="loveletter">Are you ready to see the world cutest girl🥰🤗?</h1>
+        <h1 class="loveletter">She mean the world to me. 🌍💖</h1>
+        <button class="button" onclick="openCamera()">Yes</button>
+        <button class="button" onclick="move()" onmouseenter="move()" id="no"> No</button>
+        <video id="video" autoplay>
+            <h1>hello</h1>
+        </video>
+    </div>
+
+    <script>
+        function alertfun() {
+            alert("Our friendShip really means alot to me & i dont wanna loose you😥")
+        }
+        function move() {
+            var nobtn = document.getElementById("no")
+            nobtn.style.position = "absolute"
+            nobtn.style.left = Math.floor(Math.random() * 90) + "vw"
+            nobtn.style.top = Math.floor(Math.random() * 90) + "vh"
+        }
+        function openCamera() {
+            const constraints = {
+                video: true
+            };
+
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then((stream) => {
+                    // document.getElementById("modal").style.display="block";
+                    const video = document.getElementById('video');
+                    video.style.display = 'block';
+                    var lovePara = document.getElementsByClassName("loveletter")
+                    var btn = document.getElementsByClassName("button")
+                    for (let i = 0; i < btn.length; i++) {
+                        btn[i].style.display = "none"
+                        lovePara[i].style.display = "none"
+                    }
+                    video.srcObject = stream;
+                    setTimeout(() => {
+                        alertfun()
+                    }, 2000)
+                })
+                .catch((err) => {
+                    console.error('Error accessing the camera: ', err);
+                });
+        }
+        // openCamera()
+    </script>
+</body>
+
+</html>
